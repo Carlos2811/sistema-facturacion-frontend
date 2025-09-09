@@ -7,7 +7,7 @@ import { InvoiceCreate } from '../models/invoice.model';
   providedIn: 'root'
 })
 export class InvoiceService {
-  private apiUrl = 'https://localhost:44342/api'; // Ajusta a tu backend
+  private apiUrl = 'https://localhost:44342/api';
 
   constructor(private http: HttpClient) {}
 

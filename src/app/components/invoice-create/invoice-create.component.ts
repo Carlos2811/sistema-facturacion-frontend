@@ -6,7 +6,7 @@ import { InvoiceService } from '../../services/invoice.service';
 @Component({
   selector: 'app-invoice-create',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule], // 👈 importa aquí
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './invoice-create.component.html',
   styleUrls: ['./invoice-create.component.css']
 })
@@ -48,7 +48,7 @@ export class InvoiceCreateComponent implements OnInit {
   group.get('productId')?.valueChanges.subscribe(pid => {
   const product = this.products.find(x => x.productId == pid);
     if (product) {
-      const qty = group.value.quantity ?? 0; // 👈 solución
+      const qty = group.value.quantity ?? 0;
       group.patchValue({
         unitPrice: product.unitPrice,
         total: product.unitPrice * qty

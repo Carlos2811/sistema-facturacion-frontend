@@ -13,3 +13,7 @@ export interface InvoiceCreate {
   tax: number;
   total: number;
 }
+
+export class Invoice {
+
+}

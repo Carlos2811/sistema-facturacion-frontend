@@ -1,59 +1,61 @@
-# SistemaFacturacion
+# 🖥️ Sistema de Facturación - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.10.
+Este es el **frontend** de la aplicación de facturación, desarrollado en **Angular 15+** con **Bootstrap 5**.  
+Permite crear facturas, buscarlas y mostrar clientes/productos obtenidos desde el backend.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Tecnologías usadas
+- Angular 15+
+- TypeScript
+- Bootstrap 5
+- Angular Router
+- Angular Forms / Reactive Forms
+- HttpClient (para comunicación con la API)
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 📦 Instalación y ejecución
 
-## Code scaffolding
+1. Clonar el repositorio:
+   git clone https://github.com/tuusuario/sistema-facturacion.git
+   cd sistema-facturacion/frontend
+2. Instalar dependencias:
+  npm install
+3. Ejecutar en modo desarrollo:
+  ng serve
+El frontend estará disponible en http://localhost:4200.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+🔗 Conexión con el backend
+El servicio de Angular apunta al backend en:
+https://localhost:44342/api
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+📁 Estructura principal
 
-```bash
-ng generate --help
-```
+src/app/
+ ├── components/
+ │    ├── navbar/           # Navbar Bootstrap
+ │    ├── home/             # Página de bienvenida
+ │    ├── invoice-create/   # Formulario para crear facturas
+ │    ├── invoice-search/   # Buscar facturas y mostrar resultados
+ │
+ ├── models/                # Interfaces de datos
+ ├── services/              # Servicios HTTP (API REST)
+ ├── app.routes.ts          # Configuración de rutas
+ └── app.component.ts       # Componente principal
+✅ Funcionalidades
+Crear facturas con clientes y productos.
 
-## Building
+Cálculo automático de subtotal, IVA (19%) y total.
 
-To build the project run:
+Búsqueda de facturas por número, cliente o rango de fechas.
 
-```bash
-ng build
-```
+UI responsiva con Bootstrap.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+🛠️ Scripts útiles
+ng serve → Levanta el frontend en dev.
 
-## Running unit tests
+ng build → Compila para producción en /dist.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+ng test → Ejecuta pruebas unitarias (si se definen).

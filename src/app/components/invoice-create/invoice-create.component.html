@@ -1,0 +1,55 @@
+<div class="container mt-4">
+  <h2>Crear Factura</h2>
+
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <div class="mb-3">
+      <label class="form-label">Número de factura</label>
+      <input formControlName="invoiceNumber" type="text" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Cliente</label>
+      <select formControlName="clientId" class="form-select">
+        <option value="">Seleccione...</option>
+        <option *ngFor="let c of clients" [value]="c.clientId">{{ c.name }}</option>
+      </select>
+    </div>
+
+    <h4>Productos</h4>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio Unitario</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody formArrayName="details">
+        <tr *ngFor="let d of details.controls; let i = index" [formGroupName]="i">
+          <td>
+            <select class="form-select" formControlName="productId">
+              <option [ngValue]="null">Seleccione...</option>
+              <option *ngFor="let p of products" [value]="p.productId">{{ p.name }}</option>
+            </select>
+          </td>
+          <td><input type="number" formControlName="quantity" class="form-control" /></td>
+          <td><input type="number" formControlName="unitPrice" class="form-control" readonly /></td>
+          <td><input type="number" formControlName="total" class="form-control" readonly /></td>
+          <td><button type="button" class="btn btn-danger btn-sm" (click)="removeDetail(i)">X</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-sm btn-primary" (click)="addDetail()">Agregar Producto</button>
+
+    <div class="mt-4">
+      <p>Subtotal: {{ form.value.subtotal }}</p>
+      <p>Impuestos (19%): {{ form.value.tax }}</p>
+      <p><b>Total: {{ form.value.total }}</b></p>
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Guardar Factura</button>
+  </form>
+</div>
+

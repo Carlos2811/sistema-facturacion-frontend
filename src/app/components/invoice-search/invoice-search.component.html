@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <h2>Búsqueda de Facturas</h2>
+
+  <div class="mb-3">
+    <label class="form-label">Tipo de búsqueda</label>
+    <select [(ngModel)]="type" class="form-select">
+      <option value="number">Por número</option>
+      <option value="client">Por cliente</option>
+      <option value="date">Por fechas</option>
+    </select>
+  </div>
+
+  <div *ngIf="type === 'number'" class="mb-3">
+    <input [(ngModel)]="invoiceNumber" placeholder="Número de factura" class="form-control" />
+  </div>
+
+  <div *ngIf="type === 'client'" class="mb-3">
+    <input [(ngModel)]="clientId" placeholder="ID Cliente" class="form-control" />
+  </div>
+
+  <div *ngIf="type === 'date'" class="mb-3 d-flex gap-2">
+    <input type="date" [(ngModel)]="from" class="form-control" />
+    <input type="date" [(ngModel)]="to" class="form-control" />
+  </div>
+
+  <button class="btn btn-primary" (click)="search()">Buscar</button>
+
+  <table class="table table-striped mt-3" *ngIf="results.length">
+    <thead>
+      <tr>
+        <th>Número</th>
+        <th>Cliente</th>
+        <th>Subtotal</th>
+        <th>Impuestos</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of results">
+        <td>{{ r.invoiceNumber }}</td>
+        <td>{{ r.clientName }}</td>
+        <td>{{ r.subtotal }}</td>
+        <td>{{ r.tax }}</td>
+        <td>{{ r.total }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

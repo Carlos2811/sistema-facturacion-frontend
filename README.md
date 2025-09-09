@@ -18,7 +18,7 @@ Permite crear facturas, buscarlas y mostrar clientes/productos obtenidos desde e
 ## 📦 Instalación y ejecución
 
 1. Clonar el repositorio:
-   git clone https://github.com/tuusuario/sistema-facturacion.git
+   git clone https://github.com/Carlos2811/sistema-facturacion-frontend/pull/new/master
    cd sistema-facturacion/frontend
 2. Instalar dependencias:
   npm install
